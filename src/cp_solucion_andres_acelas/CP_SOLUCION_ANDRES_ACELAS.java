@@ -8,6 +8,8 @@ package cp_solucion_andres_acelas;
 import com.javafx.experiments.importers.Importer3D;
 import javafx.animation.Animation;
 import javafx.animation.RotateTransition;
+import javafx.animation.ScaleTransition;
+import javafx.animation.TranslateTransition;
 import javafx.application.Application;
 import javafx.application.ConditionalFeature;
 import javafx.application.Platform;
@@ -42,11 +44,11 @@ public class CP_SOLUCION_ANDRES_ACELAS extends Application {
         boolean supported = Platform.isSupported(ConditionalFeature.SCENE3D);
         if (supported) System.out.println("JavaFX 3D Listo");
         else System.out.println("Esta plataforma no soporta JavaFX 3D");
-        chairScene(stage);        
+        // chairScene(stage);        
         // tableScene(stage);      
         // comedorScene(stage);
-        // pcScene(stage);
-        //xboxScene(stage);
+        pcScene(stage);
+        // xboxScene(stage);
     }
     
         public void chairScene(Stage stage) throws Exception {
@@ -174,7 +176,7 @@ public class CP_SOLUCION_ANDRES_ACELAS extends Application {
         rt.setCycleCount(Animation.INDEFINITE);
         rt.setFromAngle(0);
         rt.setToAngle(360);
-        rt.setAxis(new Point3D(0, 1, 0));
+        rt.setAxis(new Point3D(0, 0, 1));
         rt.play();
 
         scene.setFill(Color.ANTIQUEWHITE);
@@ -243,7 +245,7 @@ public class CP_SOLUCION_ANDRES_ACELAS extends Application {
         rt.setCycleCount(Animation.INDEFINITE);
         rt.setFromAngle(0);
         rt.setToAngle(360);
-        rt.setAxis(new Point3D(0, 1, 0));
+        rt.setAxis(new Point3D(1, 0, 0));
         rt.play();
 
         scene.setFill(Color.ANTIQUEWHITE);
@@ -311,12 +313,12 @@ public class CP_SOLUCION_ANDRES_ACELAS extends Application {
         rt.setCycleCount(Animation.INDEFINITE);
         rt.setFromAngle(0);
         rt.setToAngle(360);
-        rt.setAxis(new Point3D(0, 1, 0));
+        rt.setAxis(new Point3D(1, 0, 1));
         rt.play();
 
         scene.setFill(Color.ANTIQUEWHITE);
         scene.setCamera(camera);
-        stage.setTitle("JavaFX Graficos 3D - aNDRÉS MAURICIO ACELAS AREVALO");
+        stage.setTitle("JavaFX Graficos 3D - ANDRÉS MAURICIO ACELAS AREVALO");
         stage.setScene(scene);
         stage.show();
     
