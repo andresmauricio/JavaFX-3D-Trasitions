@@ -250,6 +250,74 @@ public class CP_SOLUCION_ANDRES_ACELAS extends Application {
     
     }
 
+        public void pcScene(Stage stage) throws Exception {
+        //StackPane root = new StackPane();        
+       // Scene scene = new Scene(root, 300, 250);
+       
+        PointLight light1 = new PointLight();
+        light1.setTranslateZ(-500);
+
+        Node model = Importer3D.load(getClass().getResource("laptop.obj").toExternalForm());
+        model.setScaleX(3.0);
+        model.setScaleY(3.0);
+        model.setScaleZ(3.0);
+        System.out.println(model.getRotate());  
+        model.setRotate(90);
+        System.out.println(model.getRotate());    
+        
+        Text title = new Text("Portátil ACER A515-55-39Q1");   
+        title.setFont(Font.font ("Verdana", 26));
+        title.setFill(Color.RED);
+        title.setX(200);    
+        title.setY(50);
+
+        
+        Text price = new Text("$4.500.000");
+        price.setFont(Font.font ("Verdana", 24));
+        price.setFill(Color.GREEN);
+        price.setX(200);    
+        price.setY(360);
+        
+        Text description = new Text("La \n" +
+                                    "computadora portátil es una \n" +
+                                    "computadora (ordenador) \n" +
+                                    "que, por su tamaño \n" +
+                                    "reducido y por la posibilidad \n" +
+                                    "de funcionar sin necesidad \n" +
+                                    "de estar conectada a la \n" +
+                                    "corriente eléctrica (ya que \n" +
+                                    "cuenta con una batería)");
+        description.setFont(Font.font ("Verdana", 20));
+        description.setFill(Color.BLACK);
+        description.setX(200);    
+        description.setY(90);
+        
+
+        Group root = new Group(model, title, description, price);
+
+        Scene scene = new Scene(root, 1300, 800, true, SceneAntialiasing.BALANCED);
+
+        PerspectiveCamera camera = new PerspectiveCamera();
+        camera.setTranslateX(scene.getWidth() / -3.0);
+        camera.setTranslateY(scene.getHeight() / -3.0);
+
+        RotateTransition rt = new RotateTransition(Duration.seconds( 10 ), model);
+        
+        rt.setCycleCount(Animation.INDEFINITE);
+        rt.setFromAngle(0);
+        rt.setToAngle(360);
+        rt.setAxis(new Point3D(0, 1, 0));
+        rt.play();
+
+        scene.setFill(Color.ANTIQUEWHITE);
+        scene.setCamera(camera);
+        stage.setTitle("JavaFX Graficos 3D - aNDRÉS MAURICIO ACELAS AREVALO");
+        stage.setScene(scene);
+        stage.show();
+    
+    
+    }
+
 
  
 }
