@@ -8,8 +8,6 @@ package cp_solucion_andres_acelas;
 import com.javafx.experiments.importers.Importer3D;
 import javafx.animation.Animation;
 import javafx.animation.RotateTransition;
-import javafx.animation.ScaleTransition;
-import javafx.animation.TranslateTransition;
 import javafx.application.Application;
 import javafx.application.ConditionalFeature;
 import javafx.application.Platform;
@@ -35,20 +33,22 @@ public class CP_SOLUCION_ANDRES_ACELAS extends Application {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        launch(args);
-    }
+        public static void main(String[] args) {
+            launch(args);
+        }
 
-    @Override
-    public void start(Stage stage) throws Exception {
+        @Override
+        public void start(Stage stage) throws Exception {
+            
         boolean supported = Platform.isSupported(ConditionalFeature.SCENE3D);
         if (supported) System.out.println("JavaFX 3D Listo");
         else System.out.println("Esta plataforma no soporta JavaFX 3D");
+        
         // chairScene(stage);        
         // tableScene(stage);      
         // comedorScene(stage);
-        pcScene(stage);
-        // xboxScene(stage);
+        // pcScene(stage);
+        xboxScene(stage);
     }
     
         public void chairScene(Stage stage) throws Exception {
@@ -112,7 +112,7 @@ public class CP_SOLUCION_ANDRES_ACELAS extends Application {
 
         scene.setFill(Color.ANTIQUEWHITE);
         scene.setCamera(camera);
-        stage.setTitle("JavaFX Graficos 3D - aNDRÉS MAURICIO ACELAS AREVALO");
+        stage.setTitle("JavaFX Graficos 3D - ANDRÉS MAURICIO ACELAS AREVALO");
         stage.setScene(scene);
         stage.show();
         
@@ -181,7 +181,7 @@ public class CP_SOLUCION_ANDRES_ACELAS extends Application {
 
         scene.setFill(Color.ANTIQUEWHITE);
         scene.setCamera(camera);
-        stage.setTitle("JavaFX Graficos 3D - aNDRÉS MAURICIO ACELAS AREVALO");
+        stage.setTitle("JavaFX Graficos 3D - ANDRÉS MAURICIO ACELAS AREVALO");
         stage.setScene(scene);
         stage.show();
     
@@ -386,7 +386,7 @@ public class CP_SOLUCION_ANDRES_ACELAS extends Application {
 
         scene.setFill(Color.ANTIQUEWHITE);
         scene.setCamera(camera);
-        stage.setTitle("JavaFX Graficos 3D - aNDRÉS MAURICIO ACELAS AREVALO");
+        stage.setTitle("JavaFX Graficos 3D - ANDRÉS MAURICIO ACELAS AREVALO");
         stage.setScene(scene);
         stage.show();
     
