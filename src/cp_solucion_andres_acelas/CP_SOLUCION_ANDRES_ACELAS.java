@@ -6,6 +6,8 @@
 package cp_solucion_andres_acelas;
 
 import javafx.application.Application;
+import javafx.application.ConditionalFeature;
+import javafx.application.Platform;
 import javafx.stage.Stage;
 
 /**
@@ -23,7 +25,9 @@ public class CP_SOLUCION_ANDRES_ACELAS extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        boolean supported = Platform.isSupported(ConditionalFeature.SCENE3D);
+        if (supported) System.out.println("JavaFX 3D Listo");
+        else System.out.println("Esta plataforma no soporta JavaFX 3D");    
     }
-    
+ 
 }
