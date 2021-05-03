@@ -20,7 +20,7 @@ public class CP_SOLUCION_ANDRES_ACELAS extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        launch(args);
     }
 
     @Override
