@@ -38,10 +38,15 @@ public class CP_SOLUCION_ANDRES_ACELAS extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage stage) throws Exception {
         boolean supported = Platform.isSupported(ConditionalFeature.SCENE3D);
         if (supported) System.out.println("JavaFX 3D Listo");
-        else System.out.println("Esta plataforma no soporta JavaFX 3D");    
+        else System.out.println("Esta plataforma no soporta JavaFX 3D");
+        chairScene(stage);        
+        // tableScene(stage);      
+        // comedorScene(stage);
+        // pcScene(stage);
+        //xboxScene(stage);
     }
     
         public void chairScene(Stage stage) throws Exception {
@@ -318,6 +323,73 @@ public class CP_SOLUCION_ANDRES_ACELAS extends Application {
     
     }
 
+        public void xboxScene(Stage stage) throws Exception {
+        //StackPane root = new StackPane();        
+       // Scene scene = new Scene(root, 300, 250);
+       
+        PointLight light1 = new PointLight();
+        light1.setTranslateZ(-500);
+
+        Node model = Importer3D.load(getClass().getResource("tv.obj").toExternalForm());
+        model.setScaleX(14.0);
+        model.setScaleY(14.0);
+        model.setScaleZ(14.0);
+        System.out.println(model.getRotate());  
+        model.setRotate(90);
+        System.out.println(model.getRotate());    
+        
+        Text title = new Text("Televisor Antiguo");   
+        title.setFont(Font.font ("Verdana", 26));
+        title.setFill(Color.RED);
+        title.setX(200);    
+        title.setY(50);
+
+        
+        Text price = new Text("$1.500.000");
+        price.setFont(Font.font ("Verdana", 24));
+        price.setFill(Color.GREEN);
+        price.setX(200);    
+        price.setY(360);
+        
+        Text description = new Text("Consola está \n" +
+                                    "formada por un procesador \n" +
+                                    "AMD de 8 núcleos Custom \n" +
+                                    "de 64 bits basado en \n" +
+                                    "microarquitectura Jaguar y \n" +
+                                    "una velocidad estimada en \n" +
+                                    "1,75Ghz, 8 GB de memoria \n" +
+                                    "RAM DDR3 más 32MB de \n" +
+                                    "ESRAM");
+        description.setFont(Font.font ("Verdana", 20));
+        description.setFill(Color.BLACK);
+        description.setX(200);    
+        description.setY(90);
+        
+
+        Group root = new Group(model, title, description, price);
+
+        Scene scene = new Scene(root, 1300, 800, true, SceneAntialiasing.BALANCED);
+
+        PerspectiveCamera camera = new PerspectiveCamera();
+        camera.setTranslateX(scene.getWidth() / -3.0);
+        camera.setTranslateY(scene.getHeight() / -3.0);
+
+        RotateTransition rt = new RotateTransition(Duration.seconds( 10 ), model);
+        
+        rt.setCycleCount(Animation.INDEFINITE);
+        rt.setFromAngle(0);
+        rt.setToAngle(360);
+        rt.setAxis(new Point3D(0, 1, 0));
+        rt.play();
+
+        scene.setFill(Color.ANTIQUEWHITE);
+        scene.setCamera(camera);
+        stage.setTitle("JavaFX Graficos 3D - aNDRÉS MAURICIO ACELAS AREVALO");
+        stage.setScene(scene);
+        stage.show();
+    
+    
+    }
 
  
 }
